@@ -21,6 +21,8 @@ Defaults = (
     Link(href="https://cdn.jsdelivr.net/npm/daisyui@5", rel="stylesheet", type="text/css"),
     Link(href="https://cdn.jsdelivr.net/npm/daisyui@5.0.0/themes.css", rel="stylesheet", type="text/css"),
     Script(src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"),
+    # htmx for hx- attributes
+    Script(src="https://cdn.jsdelivr.net/npm/htmx.org@2.0.8/dist/htmx.min.js"),
     # SEO meta tags
     Meta(name="viewport", content="width=device-width, initial-scale=1"),
     Meta(name="description", content="CensorNow automatically censors profanity and unwanted words from audio and video. Upload or link your media, provide words to censor, and download the censored result."),
@@ -65,6 +67,8 @@ def get(sess):
             hx_post="/censor",
             hx_target="this",
             hx_swap="outerHTML",
+            # connect the indicator (kept for clarity; event listeners also handle show/hide)
+            hx_indicator="#htmx-indicator",
             enctype="multipart/form-data",
             ),
             cls="card-body"
@@ -123,14 +127,25 @@ def get(sess):
 )
  
 
+ # simple full-screen indicator (hidden by default; shown by htmx events)
+ htmx_indicator = Div(
+        Div(
+            Div(cls="loading loading-lg"),  # daisyui spinner
+            Div("Processing...", cls="mt-3 text-white"),
+            cls="text-center"
+        ),
+        id="htmx-indicator",
+        cls="htmx-indicator fixed inset-0 bg-black/50 flex items-center justify-center z-50"
+    )
+
  return Title("Flarebase - The Spark Your Backend Needs."),Div(
             Head(Defaults,navbar),
             
             Body(
                 Main(
                     first_hero,
-                    second_hero
-
+                    second_hero,
+                    htmx_indicator,  # include indicator in page
                 ),
                 data_theme="silk",
                 cls="bg-base-200"
@@ -161,7 +176,7 @@ async def post(file: Optional[UploadFile] = None, url: str = "", censor_words: s
     file_path = download_video(url)
 
  else:
-   return Div("⚠️ Please provide a file or a URL to censor.", cls="alert alert-error")   
+   return Div(Div("⚠️ Please provide a file or a URL to censor.", cls="alert alert-error"),A("Refresh Site",cls="btn btn-soft btn-error mt-3",href="/"))   
 
  #log feedback
  print(f"Censoring file: {file_path}")
@@ -173,8 +188,10 @@ async def post(file: Optional[UploadFile] = None, url: str = "", censor_words: s
  #censor file
  censored_file = censor_media("small",file_path,words_censor_list) 
 
+ #download_link = upload_media(censored_file)
+
  #upload file to cloud
- return A("📼 Download Censored Video",cls="btn btn-success",href=censored_file)
+ return Div(A("📼 Download Censored Video",cls="btn btn-success mb-2",href=censored_file), A("Refresh Site",cls="btn btn-soft btn-error mt-3",href="/"))
 
 
 
