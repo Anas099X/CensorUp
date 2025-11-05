@@ -42,7 +42,7 @@ def get(sess):
                     cls="text-2xl text-info font-bold navbar-start"
                 ),
                 Div(
-                    
+                    A(I(cls="ti ti-brand-github-filled text-lg")," Github", href="https://github.com/Anas099X", cls="btn"),
                     cls="text-warning font-bold navbar-end space-x-5 drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)]"
                 ),
                 cls="navbar bg-ghost py-2 fixed z-50"  # reduced navbar padding
@@ -188,10 +188,10 @@ async def post(file: Optional[UploadFile] = None, url: str = "", censor_words: s
  #censor file
  censored_file = censor_media("small",file_path,words_censor_list) 
 
- #download_link = upload_media(censored_file)
+ download_link = upload_media(censored_file)
 
  #upload file to cloud
- return Div(A("📼 Download Censored Video",cls="btn btn-success mb-2",href=censored_file), A("Refresh Site",cls="btn btn-soft btn-error mt-3",href="/"))
+ return Div(A("📼 Download Censored Video",cls="btn btn-success mb-2",href=download_link), A("Refresh Site",cls="btn btn-soft btn-error mt-3",href="/"))
 
 
 
