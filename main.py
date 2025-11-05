@@ -190,8 +190,11 @@ async def post(file: Optional[UploadFile] = None, url: str = "", censor_words: s
 
  download_link = upload_media(censored_file)
 
+ #remove uploaded and censored files
+ os.remove(file_path)
+
  #upload file to cloud
- return Div(A("📼 Download Censored Video",cls="btn btn-success mb-2",href=download_link), A("Refresh Site",cls="btn btn-soft btn-error mt-3",href="/"))
+ return Div(A("📼 Download Censored Video",cls="btn btn-success",href=download_link), A("Refresh Site",cls="btn btn-soft btn-error ml-4",href="/"))
 
 
 

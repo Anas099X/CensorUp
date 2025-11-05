@@ -1,0 +1,5 @@
+python-fasthtml
+requests
+yt-dlp
+dotenv
+pocketbase
