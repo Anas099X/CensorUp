@@ -3,3 +3,4 @@ requests
 yt-dlp
 dotenv
 pocketbase
+whisper_timestamped
