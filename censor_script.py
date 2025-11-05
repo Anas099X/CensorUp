@@ -36,7 +36,11 @@ def censor_media(model_type:str,input_media:str,blocked_words:list):
     volume_expr = " + ".join([f"between(t,{start},{end})" for start, end in mute_ranges])
     volume_filter = f"volume=enable='{volume_expr}':volume=0"
 
-    output_file = str(media).replace("uploads\\","uploads\\censored_")
+    # ✅ Use cross-platform path handling
+    folder = os.path.dirname(media)
+    filename = os.path.basename(media)
+    output_file = os.path.join(folder, f"censored_{filename}")
+
 
     # Run FFmpeg command to mute audio in those ranges
     cmd = [
