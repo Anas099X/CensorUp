@@ -3,6 +3,5 @@ requests
 yt-dlp
 dotenv
 pocketbase
---index-url https://download.pytorch.org/whl/cpu
 torch
 whisper_timestamped
