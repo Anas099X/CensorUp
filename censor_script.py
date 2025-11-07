@@ -1,7 +1,7 @@
 import os, subprocess
 import whisper_timestamped as whisper
 
-os.environ["PATH"] += os.pathsep + r"C:\Users\Anas\ffmpeg\bin"
+#os.environ["PATH"] += os.pathsep + r"C:\Users\Anas\ffmpeg\bin"
 
 
 def censor_media(model_type:str,input_media:str,blocked_words:list):
@@ -36,10 +36,14 @@ def censor_media(model_type:str,input_media:str,blocked_words:list):
     volume_expr = " + ".join([f"between(t,{start},{end})" for start, end in mute_ranges])
     volume_filter = f"volume=enable='{volume_expr}':volume=0"
 
-    # ✅ Use cross-platform path handling
+  #✅ Create truly separate output file in same folder
     folder = os.path.dirname(media)
     filename = os.path.basename(media)
-    output_file = os.path.join(folder, f"censored_{filename}")
+    name, ext = os.path.splitext(filename)
+    output_file = os.path.join(folder, f"{name}_censored{ext}")
+
+    print(f"Input file: {media}")
+    print(f"Output file: {output_file}")
 
 
     # Run FFmpeg command to mute audio in those ranges
