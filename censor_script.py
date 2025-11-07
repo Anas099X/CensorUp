@@ -12,6 +12,7 @@ def censor_media(model_type:str,input_media:str,blocked_words:list):
     media = input_media
 
     result = whisper.transcribe(model,media,language="en")
+    
     #print(result)
     # Words you want to remove
     
