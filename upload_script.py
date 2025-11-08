@@ -16,7 +16,7 @@ def upload_media(file_path:str):
  result = client.collection("temp_storage").create(
     {
         "file": FileUpload((file_path, open(file_path, "rb"))),
-    },{"test": access_token})
+    },{"pbtoken": access_token})
 
 
  record = client.collection("temp_storage").get_one(result.id)
