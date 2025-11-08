@@ -1,9 +1,9 @@
 from fasthtml.common import *
 from fasthtml.components import *
 from censor_script import censor_media
-from upload_script import upload_media
+from storage_script import upload_media, delete_media
 from url_downloader_script import download_video
-import os
+import os, threading
 from typing import Optional
 import base64
 from urllib.parse import urlparse
@@ -196,6 +196,7 @@ async def post(file: Optional[UploadFile] = None, url: str = "", censor_words: s
  #upload file to cloud
  return Div(A("📼 Download Censored Video",cls="btn btn-success",href=download_link), A("Refresh Site",cls="btn btn-soft btn-error ml-4",href="/"))
 
-
+#start background deletion thread
+threading.Thread(target=delete_media, daemon=True).start()
 
 serve()
