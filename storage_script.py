@@ -7,7 +7,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 
-client = PocketBase('https://anas099.duckdns.org')
+client = PocketBase(os.getenv("CLIENT"))
 
 access_token = os.getenv("PBTOKEN")
 

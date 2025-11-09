@@ -24,6 +24,7 @@ Defaults = (
     # htmx for hx- attributes
     Script(src="https://cdn.jsdelivr.net/npm/htmx.org@2.0.8/dist/htmx.min.js"),
     # SEO meta tags
+    Title("CensorNow — Automatic Profanity Censorship, No Signup Required"),
     Meta(name="viewport", content="width=device-width, initial-scale=1"),
     Meta(name="description", content="CensorNow automatically censors profanity and unwanted words from audio and video. Upload or link your media, provide words to censor, and download the censored result."),
     Meta(name="keywords", content="censor, audio censor, video censor, profanity filter, content moderation, automatic censoring"),
