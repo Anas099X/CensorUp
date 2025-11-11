@@ -23,6 +23,7 @@ Defaults = (
     Script(src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"),
     # htmx for hx- attributes
     Script(src="https://cdn.jsdelivr.net/npm/htmx.org@2.0.8/dist/htmx.min.js"),
+    Script(src="https://cloud.umami.is/script.js" ,data_website_id="1cdc08e2-77c1-4c03-b680-9e7640e41616"),
     # SEO meta tags
     Title("CensorNow — Automatic Profanity Censorship, No Signup Required"),
     Meta(name="viewport", content="width=device-width, initial-scale=1"),
@@ -139,7 +140,7 @@ def get(sess):
         cls="htmx-indicator fixed inset-0 bg-black/50 flex items-center justify-center z-50"
     )
 
- return Title("Flarebase - The Spark Your Backend Needs."),Div(
+ return Title("CensorNow — Automatic Profanity Censorship, No Signup Required"),Div(
             Head(Defaults,navbar),
             
             Body(
