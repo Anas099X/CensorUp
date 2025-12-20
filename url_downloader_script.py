@@ -9,8 +9,7 @@ def download_video(url):
  # Set basic download options
  options = {
     'outtmpl': 'uploads/%(title)s.%(ext)s',  # Save file as video title
-    "format": "best"
-}
+    "format": "best"}
 
  # Create downloader
  with yt_dlp.YoutubeDL(options) as ydl:

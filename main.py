@@ -60,7 +60,7 @@ def get(sess):
             Div(
                 Input(type="file" ,name="file",cls="file-input"),
                 Div("OR",cls="divider lg:divider-horizontal"),
-                Input(type="text", name="url",placeholder="🌐 Enter a YouTube / Facebook / Instagram / TikTok URL",cls="input input-bordered w-96"),
+                Input(type="text", name="url",placeholder="🌐 Enter a YouTube / Facebook / Instagram / TikTok URL",cls="input input-bordered w-full"),
                 cls="flex w-full flex-col lg:flex-row"
             ),
             Textarea(type="text", name="censor_words",placeholder="🗣️ Enter words to censor seperated by commas (ex. badword1,badword2)",cls="input input-bordered w-full mt-5"),
@@ -75,7 +75,7 @@ def get(sess):
             ),
             cls="card-body"
         ),
-        cls="card bg-base-300 hero-content text-center mx-auto my-auto w-full max-w-1/2 justify-center"
+        cls="card bg-base-300 hero-content text-center mx-auto my-auto w-full lg:max-w-1/2 justify-center"
     ),
     cls="hero min-h-screen mb-0 rounded-b-3xl")
  
