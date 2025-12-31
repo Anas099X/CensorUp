@@ -1,6 +1,8 @@
 # 🤫CensorUp
-
 > Open-source automatic audio & video profanity censoring web app
+
+<img width="949" height="479" alt="Screenshot_4" src="https://github.com/user-attachments/assets/ed3af016-bb01-4b4d-896e-b2679e00c500" />
+
 
 Short, privacy-focused tool to automatically censor specified words in uploaded or linked audio/video files. Built with FastHTML, Pocketbase and small helper scripts to download, process, and upload media.
 
