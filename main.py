@@ -25,11 +25,11 @@ Defaults = (
     Script(src="https://cdn.jsdelivr.net/npm/htmx.org@2.0.8/dist/htmx.min.js"),
     Script(src="https://cloud.umami.is/script.js" ,data_website_id="1cdc08e2-77c1-4c03-b680-9e7640e41616"),
     # SEO meta tags
-    Title("CensorNow — Automatic Profanity Censorship, No Signup Required"),
+    Title("CensorUp — Automatic Profanity Censorship, No Signup Required"),
     Meta(name="viewport", content="width=device-width, initial-scale=1"),
-    Meta(name="description", content="CensorNow automatically censors profanity and unwanted words from audio and video. Upload or link your media, provide words to censor, and download the censored result."),
+    Meta(name="description", content="CensorUp automatically censors profanity and unwanted words from audio and video. Upload or link your media, provide words to censor, and download the censored result."),
     Meta(name="keywords", content="censor, audio censor, video censor, profanity filter, content moderation, automatic censoring"),
-    Meta(property="og:title", content="CensorNow — Automatic Audio/Video Profanity Censoring"),
+    Meta(property="og:title", content="CensorUp — Automatic Audio/Video Profanity Censoring"),
     Meta(property="og:description", content="Upload or link audio/video and automatically censor specified words. Fast processing, flexible inputs, privacy-focused."),
     Meta(property="og:type", content="website"),
     Meta(name="twitter:card", content="summary_large_image"),
@@ -40,7 +40,7 @@ def get(sess):
  
  navbar = Div(
                 Div(
-                    "🤫 CensorNow", 
+                    "🤫 CensorUp", 
                     cls="text-2xl text-info font-bold navbar-start"
                 ),
                 Div(
@@ -84,9 +84,9 @@ def get(sess):
 
     # SEO-friendly About + Features + Q&A
     Div(
-        Div("About CensorNow", cls="text-3xl font-bold mb-2"),
+        Div("About CensorUp", cls="text-3xl font-bold mb-2"),
         Div(
-            "CensorNow helps you automatically remove or mask profanity and undesired words from audio and video. "
+            "CensorUp helps you automatically remove or mask profanity and undesired words from audio and video. "
             "Upload a file or provide a direct URL, list words to censor, and get a downloadable censored media file. "
             "Designed for content creators, educators, and platforms that want a quick, private way to sanitize media.",
             cls="text-base mb-5 w-full mx-auto"
@@ -117,7 +117,7 @@ def get(sess):
             Div("Frequently Asked Questions", cls="text-xl font-semibold mb-3"),
             Div(
                 Div(Div("Q: How long does processing take?", cls="font-bold"), Div("A: Small files usually process within seconds to a minute. Larger files depend on duration and server load.", cls="mb-4")),
-                Div(Div("Q: What formats are supported?", cls="font-bold"), Div("A: Common audio/video formats (mp3, wav, mp4, mov). If you provide a direct URL, CensorNow will attempt to fetch supported media.", cls="mb-4")),
+                Div(Div("Q: What formats are supported?", cls="font-bold"), Div("A: Common audio/video formats (mp3, wav, mp4, mov). If you provide a direct URL, CensorUp will attempt to fetch supported media.", cls="mb-4")),
                 Div(Div("Q: Are my files kept?", cls="font-bold"), Div("A: By default, files are stored temporarily for processing and automatically removed after completion with an hour. Do not upload sensitive data you are not comfortable sharing.", cls="mb-4")),
                 cls="prose max-w-none"
             ),
@@ -140,7 +140,7 @@ def get(sess):
         cls="htmx-indicator fixed inset-0 bg-black/50 flex items-center justify-center z-50"
     )
 
- return Title("CensorNow — Automatic Profanity Censorship, No Signup Required"),Div(
+ return Title("CensorUp — Automatic Profanity Censorship, No Signup Required"),Div(
             Head(Defaults,navbar),
             
             Body(
