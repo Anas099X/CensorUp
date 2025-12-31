@@ -33,7 +33,7 @@ python -m pip install -r requirements.txt
 python main.py
 ```
 
-3. Open your browser at http://localhost:5000 (or the address printed by the script)
+3. Open your browser at http://localhost:5001 (or the address printed by the script)
 
 **How to use**
 - On the homepage you can either upload an audio/video file or paste a supported media URL.
