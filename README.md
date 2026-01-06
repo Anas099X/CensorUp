@@ -9,7 +9,7 @@ Short, privacy-focused tool to automatically censor specified words in uploaded 
 ## Features
 - Fast, local processing of audio/video to mask or remove profane words
 - Accepts file uploads or media URLs (YouTube, Facebook, Instagram, TikTok)
-- Temporary storage in `uploads/` and automatic background deletion
+- Temporary storage in `/uploads` and automatic background deletion
 - Simple web UI — no signup required
 
 ## Repository structure
